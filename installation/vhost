@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+
+  ServerName loose.phpsc
+  DocumentRoot /var/www/summercamp/workshops/loose/web
+
+  <Directory "/var/www/summercamp/workshops/loose/web">
+    AllowOverride All
+    Options +FollowSymLinks
+    Order allow,deny
+    Allow from all
+    <IfModule mod_rewrite.c>
+        Options -MultiViews
+        RewriteEngine On
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteRule ^(.*)$ app_dev.php [QSA,L]
+    </IfModule>
+  </Directory>
+
+</VirtualHost>
