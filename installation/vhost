@@ -4,7 +4,7 @@
   DocumentRoot /var/www/summercamp/workshops/loose/web
 
   <Directory "/var/www/summercamp/workshops/loose/web">
-    AllowOverride All
+    AllowOverride None
     Options +FollowSymLinks
     Order allow,deny
     Allow from all
