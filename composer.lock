@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ae5b0e6f4d366d864f242dcb967f2ecc",
+    "hash": "d6a26b56addcd8b53cc7e1c7a1169bef",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1963,6 +1963,53 @@
                 "templating"
             ],
             "time": "2015-07-31 13:45:26"
+        },
+        {
+            "name": "zalas/param-converter-bundle",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakzal/ParamConverterBundle.git",
+                "reference": "4db1fc63901fa4822991334450386c3dba2ac38b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakzal/ParamConverterBundle/zipball/4db1fc63901fa4822991334450386c3dba2ac38b",
+                "reference": "4db1fc63901fa4822991334450386c3dba2ac38b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5",
+                "sensio/framework-extra-bundle": "~3.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~4.6",
+                "symfony/browser-kit": "~2.3"
+            },
+            "type": "bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zalas\\Bundle\\ParamConverterBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Zalas",
+                    "email": "jakub@zalas.pl"
+                }
+            ],
+            "description": "Bundle that provides additional param converters for Symfony",
+            "time": "2015-08-19 10:24:01"
         }
     ],
     "packages-dev": [
@@ -2926,8 +2973,5 @@
         "php": ">=5.3.9",
         "ext-pdo_sqlite": "*"
     },
-    "platform-dev": [],
-    "platform-overrides": {
-        "php": "5.3.9"
-    }
+    "platform-dev": []
 }
