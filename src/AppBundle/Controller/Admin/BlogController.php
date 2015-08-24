@@ -12,6 +12,7 @@
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\Form\PostType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -98,6 +99,11 @@ class BlogController extends Controller
      *
      * @Route("/{id}", requirements={"id" = "\d+"}, name="admin_post_show")
      * @Method("GET")
+     * @ParamConverter("post", converter="service", options={
+     *     "service"="post_repository",
+     *     "method"="findOneById",
+     *     "arguments":{"id"}
+     * })
      */
     public function showAction(Post $post)
     {
@@ -121,6 +127,11 @@ class BlogController extends Controller
      *
      * @Route("/{id}/edit", requirements={"id" = "\d+"}, name="admin_post_edit")
      * @Method({"GET", "POST"})
+     * @ParamConverter("post", converter="service", options={
+     *     "service"="post_repository",
+     *     "method"="findOneById",
+     *     "arguments":{"id"}
+     * })
      */
     public function editAction(Post $post, Request $request)
     {
@@ -153,6 +164,11 @@ class BlogController extends Controller
      * @Route("/{id}", name="admin_post_delete")
      * @Method("DELETE")
      * @Security("post.isAuthor(user)")
+     * @ParamConverter("post", converter="service", options={
+     *     "service"="post_repository",
+     *     "method"="findOneById",
+     *     "arguments":{"id"}
+     * })
      *
      * The Security annotation value is an expression (if it evaluates to false,
      * the authorization mechanism will prevent the user accessing this resource).
