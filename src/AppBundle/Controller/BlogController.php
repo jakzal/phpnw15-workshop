@@ -46,10 +46,11 @@ class BlogController extends Controller
     /**
      * @Route("/posts/{slug}", name="blog_post")
      *
-     * NOTE: The $post controller argument is automatically injected by Symfony
-     * after performing a database query looking for a Post with the 'slug'
-     * value given in the route.
-     * See http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html
+     * @ParamConverter("post", converter="service", options={
+     *     "service"="post_repository",
+     *     "method"="findOneBySlug",
+     *     "arguments":{"slug"}
+     * })
      */
     public function postShowAction(Post $post)
     {
@@ -61,7 +62,11 @@ class BlogController extends Controller
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      *
      * @Method("POST")
-     * @ParamConverter("post", options={"mapping": {"postSlug": "slug"}})
+     * @ParamConverter("post", converter="service", options={
+     *     "service"="post_repository",
+     *     "method"="findOneBySlug",
+     *     "arguments":{"postSlug"}
+     * })
      *
      * NOTE: The ParamConverter mapping is required because the route parameter
      * (postSlug) doesn't match any of the Doctrine entity properties (slug).
@@ -95,8 +100,11 @@ class BlogController extends Controller
      * blog/post_show.html.twig template. That's why it's not needed to define
      * a route name for it.
      *
-     * The "id" of the Post is passed in and then turned into a Post object
-     * automatically by the ParamConverter.
+     * @ParamConverter("post", converter="service", options={
+     *     "service"="post_repository",
+     *     "method"="findOneById",
+     *     "arguments":{"id"}
+     * })
      *
      * @param Post $post
      *
