@@ -47,6 +47,11 @@ services:
         factory:   ["@doctrine.orm.entity_manager", getRepository]
         arguments: [AppBundle\Entity\Post]
 
+    comment_repository:
+        class:     AppBundle\Repository\CommentRepository
+        factory:   ["@doctrine.orm.entity_manager", getRepository]
+        arguments: [AppBundle\Entity\Comment]
+
     user_repository:
         class:     AppBundle\Repository\UserRepository
         factory:   ["@doctrine.orm.entity_manager", getRepository]
