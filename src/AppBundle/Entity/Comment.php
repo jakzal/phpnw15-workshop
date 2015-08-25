@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentRepository")
  *
  * Defines the properties of the Comment entity to represent the blog comments.
  * See http://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
