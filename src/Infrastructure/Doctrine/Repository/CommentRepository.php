@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Repository;
+namespace Infrastructure\Doctrine\Repository;
 
 use Blog\Comment;
 use Blog\CommentRepository as BlogCommentRepository;
