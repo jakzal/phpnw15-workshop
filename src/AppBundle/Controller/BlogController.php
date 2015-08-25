@@ -11,8 +11,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Comment;
-use AppBundle\Entity\Post;
+use Blog\Comment;
+use Blog\Post;
 use AppBundle\Form\CommentType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;

@@ -13,7 +13,7 @@ namespace AppBundle\Tests\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
-use AppBundle\Entity\Post;
+use Blog\Post;
 
 /**
  * Functional test for the controllers defined inside the BlogController used

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AppBundle\Entity;
+namespace Blog;
 
 use Symfony\Component\Validator\Constraints as Assert;
 

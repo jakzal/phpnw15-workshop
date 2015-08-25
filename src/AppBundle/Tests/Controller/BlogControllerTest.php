@@ -12,7 +12,7 @@
 namespace AppBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use AppBundle\Entity\Post;
+use Blog\Post;
 
 /**
  * Functional test for the controllers defined inside BlogController.

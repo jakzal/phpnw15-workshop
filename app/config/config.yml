@@ -93,6 +93,12 @@ doctrine:
                 dir: %kernel.root_dir%/../src/Infrastructure/Doctrine/Resources/config/AppBundle
                 prefix: AppBundle\Entity
                 alias: AppBundle
+            Blog:
+                type: xml
+                is_bundle: false
+                dir: %kernel.root_dir%/../src/Infrastructure/Doctrine/Resources/config/Blog
+                prefix: Blog
+                alias: Blog
 
 # Swiftmailer Configuration (used to send emails)
 swiftmailer:

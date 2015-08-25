@@ -2,7 +2,7 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\Comment;
+use Blog\Comment;
 use Doctrine\ORM\EntityRepository;
 
 class CommentRepository extends EntityRepository

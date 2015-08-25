@@ -18,7 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use AppBundle\Entity\Post;
+use Blog\Post;
 
 /**
  * Controller used to manage blog contents in the backend.
@@ -172,7 +172,7 @@ class BlogController extends Controller
      *
      * The Security annotation value is an expression (if it evaluates to false,
      * the authorization mechanism will prevent the user accessing this resource).
-     * The isAuthor() method is defined in the AppBundle\Entity\Post entity.
+     * The isAuthor() method is defined in the Blog\Post entity.
      */
     public function deleteAction(Request $request, Post $post)
     {

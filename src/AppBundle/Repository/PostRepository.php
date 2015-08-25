@@ -12,7 +12,7 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use AppBundle\Entity\Post;
+use Blog\Post;
 
 /**
  * This custom Doctrine repository contains some methods which are useful when
