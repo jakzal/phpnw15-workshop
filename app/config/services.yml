@@ -47,17 +47,21 @@ services:
         arguments:
             - @user_repository
 
-    post_repository:
+    post_repository.doctrine:
         class:     Blog\PostRepository
         factory:   ["@doctrine.orm.entity_manager", getRepository]
         arguments: [Blog\Post]
 
-    comment_repository:
+    comment_repository.doctrine:
         class:     Blog\CommentRepository
         factory:   ["@doctrine.orm.entity_manager", getRepository]
         arguments: [Blog\Comment]
 
-    user_repository:
+    user_repository.doctrine:
         class:     AppBundle\Entity\UserRepository
         factory:   ["@doctrine.orm.entity_manager", getRepository]
         arguments: [AppBundle\Entity\User]
+
+    post_repository: @post_repository.doctrine
+    comment_repository: @comment_repository.doctrine
+    user_repository: @user_repository.doctrine
