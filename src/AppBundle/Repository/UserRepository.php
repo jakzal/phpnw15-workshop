@@ -26,6 +26,26 @@ use Doctrine\ORM\EntityRepository;
 class UserRepository extends EntityRepository
 {
     /**
+     * @param string $username
+     *
+     * @return null|User
+     */
+    public function findOneByUsername($username)
+    {
+        return $this->findOneBy(['username' => $username]);
+    }
+
+    /**
+     * @param int $maxResults
+     *
+     * @return User[]
+     */
+    public function findSorted($maxResults)
+    {
+        return $this->findBy([], ['id' => 'DESC'], $maxResults);
+    }
+
+    /**
      * @param User $user
      */
     public function register(User $user)
