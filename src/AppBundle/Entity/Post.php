@@ -2,19 +2,10 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
- *
- * Defines the properties of the Post entity to represent the blog posts.
- * See http://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
- *
- * Tip: if you have an existing database, you can generate these entity class automatically.
- * See http://symfony.com/doc/current/cookbook/doctrine/reverse_engineering.html
- *
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
@@ -28,55 +19,53 @@ class Post
     const NUM_ITEMS = 10;
 
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @var int
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @var string
+     *
      * @Assert\NotBlank()
      */
     private $title;
 
     /**
-     * @ORM\Column(type="string")
+     * @var string
      */
     private $slug;
 
     /**
-     * @ORM\Column(type="string")
+     * @var string
+     *
      * @Assert\NotBlank(message="post.blank_summary")
      */
     private $summary;
 
     /**
-     * @ORM\Column(type="text")
+     * @var string
+     *
      * @Assert\NotBlank(message="post.blank_content")
      * @Assert\Length(min = "10", minMessage = "post.too_short_content")
      */
     private $content;
 
     /**
-     * @ORM\Column(type="string")
+     * @var string
+     *
      * @Assert\Email()
      */
     private $authorEmail;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     *
      * @Assert\DateTime()
      */
     private $publishedAt;
 
     /**
-     * @ORM\OneToMany(
-     *      targetEntity="Comment",
-     *      mappedBy="post",
-     *      orphanRemoval=true
-     * )
-     * @ORM\OrderBy({"publishedAt" = "DESC"})
+     * @var Comment[]
      */
     private $comments;
 

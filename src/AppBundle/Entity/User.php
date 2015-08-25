@@ -6,43 +6,33 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
- *
- * Defines the properties of the User entity to represent the application users.
- * See http://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
- *
- * Tip: if you have an existing database, you can generate these entity class automatically.
- * See http://symfony.com/doc/current/cookbook/doctrine/reverse_engineering.html
- *
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
 class User implements UserInterface
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @var int
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true)
+     * @var string
      */
     private $username;
 
     /**
-     * @ORM\Column(type="string", unique=true)
+     * @var string
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @var string
      */
     private $password;
 
     /**
-     * @ORM\Column(type="json_array")
+     * @var string[]
      */
     private $roles = array();
 
