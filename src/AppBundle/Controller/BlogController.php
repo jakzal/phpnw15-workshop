@@ -79,9 +79,7 @@ class BlogController extends Controller
             $comment->setAuthorEmail($this->getUser()->getEmail());
             $comment->setPost($post);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
-            $em->flush();
+            $this->get('comment_repository')->post($comment);
 
             return $this->redirectToRoute('blog_post', array('slug' => $post->getSlug()));
         }
