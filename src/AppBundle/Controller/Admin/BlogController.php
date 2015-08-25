@@ -82,9 +82,7 @@ class BlogController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $post->setSlug($this->get('slugger')->slugify($post->getTitle()));
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($post);
-            $em->flush();
+            $this->get('post_repository')->publish($post);
 
             return $this->redirectToRoute('admin_post_index');
         }
@@ -130,8 +128,6 @@ class BlogController extends Controller
             throw $this->createAccessDeniedException('Posts can only be edited by their authors.');
         }
 
-        $em = $this->getDoctrine()->getManager();
-
         $editForm = $this->createForm(new PostType(), $post);
         $deleteForm = $this->createDeleteForm($post);
 
@@ -139,7 +135,7 @@ class BlogController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $post->setSlug($this->get('slugger')->slugify($post->getTitle()));
-            $em->flush();
+            $this->get('post_repository')->publish($post);
 
             return $this->redirectToRoute('admin_post_edit', array('id' => $post->getId()));
         }
@@ -168,10 +164,7 @@ class BlogController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            $em->remove($post);
-            $em->flush();
+            $this->get('post_repository')->remove($post);
         }
 
         return $this->redirectToRoute('admin_post_index');

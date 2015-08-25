@@ -36,4 +36,24 @@ class PostRepository extends EntityRepository
             ->getResult()
         ;
     }
+
+    /**
+     * @param Post $post
+     */
+    public function publish(Post $post)
+    {
+        $em = $this->getEntityManager();
+        $em->persist($post);
+        $em->flush();
+    }
+
+    /**
+     * @param Post $post
+     */
+    public function remove(Post $post)
+    {
+        $em = $this->getEntityManager();
+        $em->remove($post);
+        $em->flush();
+    }
 }
