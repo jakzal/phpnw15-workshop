@@ -46,3 +46,8 @@ services:
         class:     AppBundle\Repository\PostRepository
         factory:   ["@doctrine.orm.entity_manager", getRepository]
         arguments: [AppBundle\Entity\Post]
+
+    user_repository:
+        class:     AppBundle\Repository\UserRepository
+        factory:   ["@doctrine.orm.entity_manager", getRepository]
+        arguments: [AppBundle\Entity\User]
