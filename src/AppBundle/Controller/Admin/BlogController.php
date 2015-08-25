@@ -52,8 +52,7 @@ class BlogController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('AppBundle:Post')->findAll();
+        $posts = $this->get('post_repository')->findAll();
 
         return $this->render('admin/blog/index.html.twig', array('posts' => $posts));
     }
