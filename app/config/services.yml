@@ -86,6 +86,13 @@ services:
          arguments:
             - @pdo
 
-    post_repository: @post_repository.pdo
+    post_repository.cache:
+         public: false
+         class: Infrastructure\Cache\Repository\PostRepository
+         arguments:
+             - @post_repository.pdo
+             - @repository_cache
+
+    post_repository: @post_repository.cache
     comment_repository: @comment_repository.pdo
     user_repository: @user_repository.pdo
