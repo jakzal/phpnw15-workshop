@@ -90,6 +90,7 @@ class PostRepository implements BlogPostRepository
     public function publish(Post $post)
     {
         $this->postRepository->publish($post);
+        $this->cache->delete($this->getPostCacheKey($post->getSlug()));
     }
 
     /**
@@ -98,6 +99,7 @@ class PostRepository implements BlogPostRepository
     public function remove(Post $post)
     {
         $this->postRepository->remove($post);
+        $this->cache->delete($this->getPostCacheKey($post->getSlug()));
     }
 
     /**
