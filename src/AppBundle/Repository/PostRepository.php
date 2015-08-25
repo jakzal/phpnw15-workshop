@@ -38,6 +38,33 @@ class PostRepository extends EntityRepository
     }
 
     /**
+     * @return Post[]
+     */
+    public function findAll()
+    {
+        return parent::findAll();
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return null|Post
+     */
+    public function findOneById($id)
+    {
+        return $this->find($id);
+    }
+
+    /**
+     * @param $slug
+     * @return null|Post
+     */
+    public function findOneBySlug($slug)
+    {
+        return $this->findOneBy(['slug' => $slug]);
+    }
+
+    /**
      * @param Post $post
      */
     public function publish(Post $post)
