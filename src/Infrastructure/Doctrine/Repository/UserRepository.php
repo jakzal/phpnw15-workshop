@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AppBundle\Repository;
+namespace Infrastructure\Doctrine\Repository;
 
 use AppBundle\Entity\User;
 use AppBundle\Entity\UserRepository as AppUserRepository;
