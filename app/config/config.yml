@@ -85,7 +85,14 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        auto_mapping: false
+        mappings:
+            AppBundle:
+                type: xml
+                is_bundle: false
+                dir: %kernel.root_dir%/../src/Infrastructure/Doctrine/Resources/config/AppBundle
+                prefix: AppBundle\Entity
+                alias: AppBundle
 
 # Swiftmailer Configuration (used to send emails)
 swiftmailer:
