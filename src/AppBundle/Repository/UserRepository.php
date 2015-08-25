@@ -12,6 +12,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\UserRepository as AppUserRepository;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -23,7 +24,7 @@ use Doctrine\ORM\EntityRepository;
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
-class UserRepository extends EntityRepository
+class UserRepository extends EntityRepository implements AppUserRepository
 {
     /**
      * @param string $username
