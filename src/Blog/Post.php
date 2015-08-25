@@ -2,7 +2,6 @@
 
 namespace Blog;
 
-use AppBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 

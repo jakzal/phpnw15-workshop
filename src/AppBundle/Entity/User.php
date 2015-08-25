@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Blog\User as BlogUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -9,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
-class User implements UserInterface
+class User implements UserInterface, BlogUser
 {
     /**
      * @var int
