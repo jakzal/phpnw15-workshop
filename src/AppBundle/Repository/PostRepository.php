@@ -11,6 +11,7 @@
 
 namespace AppBundle\Repository;
 
+use Blog\PostRepository as BlogPostRepository;
 use Doctrine\ORM\EntityRepository;
 use Blog\Post;
 
@@ -22,7 +23,7 @@ use Blog\Post;
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
-class PostRepository extends EntityRepository
+class PostRepository extends EntityRepository implements BlogPostRepository
 {
     public function findLatest($limit = Post::NUM_ITEMS)
     {
