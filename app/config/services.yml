@@ -62,6 +62,30 @@ services:
         factory:   ["@doctrine.orm.entity_manager", getRepository]
         arguments: [AppBundle\Entity\User]
 
+    pdo:
+        public: false
+        class: PDO
+        arguments:
+            - sqlite:%database_path%
+
+    post_repository.pdo:
+         public: false
+         class: Infrastructure\Pdo\Repository\PostRepository
+         arguments:
+            - @pdo
+
+    comment_repository.pdo:
+         public: false
+         class: Infrastructure\Pdo\Repository\CommentRepository
+         arguments:
+            - @pdo
+
+    user_repository.pdo:
+         public: false
+         class: Infrastructure\Pdo\Repository\UserRepository
+         arguments:
+            - @pdo
+
     post_repository: @post_repository.doctrine
     comment_repository: @comment_repository.doctrine
     user_repository: @user_repository.doctrine

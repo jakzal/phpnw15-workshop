@@ -1,6 +1,9 @@
 imports:
     - { resource: config_dev.yml }
 
+parameters:
+    database_path: "%kernel.root_dir%/data/blog_test.sqlite"
+
 framework:
     test: ~
     session:
