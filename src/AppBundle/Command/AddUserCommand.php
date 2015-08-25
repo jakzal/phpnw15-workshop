@@ -11,6 +11,7 @@
 
 namespace AppBundle\Command;
 
+use AppBundle\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -44,6 +45,11 @@ class AddUserCommand extends ContainerAwareCommand
      */
     private $em;
 
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+
     protected function configure()
     {
         $this
@@ -71,6 +77,7 @@ class AddUserCommand extends ContainerAwareCommand
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
         $this->em = $this->getContainer()->get('doctrine')->getManager();
+        $this->userRepository = $this->getContainer()->get('user_repository');
     }
 
     /**
@@ -174,7 +181,7 @@ class AddUserCommand extends ContainerAwareCommand
         $isAdmin = $input->getOption('is-admin');
 
         // first check if a user with the same username already exists
-        $existingUser = $this->em->getRepository('AppBundle:User')->findOneBy(array('username' => $username));
+        $existingUser = $this->userRepository->findOneBy(array('username' => $username));
 
         if (null !== $existingUser) {
             throw new \RuntimeException(sprintf('There is already a user registered with the "%s" username.', $username));

@@ -11,6 +11,7 @@
 
 namespace AppBundle\Command;
 
+use AppBundle\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -31,9 +32,9 @@ use Symfony\Component\Console\Output\BufferedOutput;
 class ListUsersCommand extends ContainerAwareCommand
 {
     /**
-     * @var ObjectManager
+     * @var UserRepository
      */
-    private $em;
+    private $userRepository;
 
     protected function configure()
     {
@@ -71,7 +72,7 @@ HELP
      */
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
-        $this->em = $this->getContainer()->get('doctrine')->getManager();
+        $this->userRepository = $this->getContainer()->get('user_repository');
     }
 
     /**
@@ -82,7 +83,7 @@ HELP
     {
         $maxResults = $input->getOption('max-results');
         // Use ->findBy() instead of ->findAll() to allow result sorting and limiting
-        $users = $this->em->getRepository('AppBundle:User')->findBy(array(), array('id' => 'DESC'), $maxResults);
+        $users = $this->userRepository->findBy(array(), array('id' => 'DESC'), $maxResults);
 
         // Doctrine query returns an array of objects and we need an array of plain arrays
         $usersAsPlainArrays = array_map(function ($user) {
