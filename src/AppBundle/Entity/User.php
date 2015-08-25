@@ -74,6 +74,14 @@ class User implements UserInterface, BlogUser
      */
     public function getRoles()
     {
+        if (!is_array($this->roles)) {
+            // This should be done in the Infrastructure layer instead of here,
+            // since this is only a storage related detail.
+            // At the moment hydration is greatly simplified not to obfuscate the big picture.
+            $this->roles = json_decode($this->roles);
+            $this->roles = is_array($this->roles) ? $this->roles : [];
+        }
+
         $roles = $this->roles;
 
         // guarantees that a user always has at least one role for security
