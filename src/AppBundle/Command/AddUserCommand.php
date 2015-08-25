@@ -11,7 +11,7 @@
 
 namespace AppBundle\Command;
 
-use AppBundle\Repository\UserRepository;
+use AppBundle\Entity\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

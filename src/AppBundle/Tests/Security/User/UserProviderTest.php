@@ -3,7 +3,7 @@
 namespace AppBundle\Tests\Security\User;
 
 use AppBundle\Entity\User;
-use AppBundle\Repository\UserRepository;
+use AppBundle\Entity\UserRepository;
 use AppBundle\Security\User\UserProvider;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -27,10 +27,7 @@ class UserProviderTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->userRepository = $this->getMockBuilder(UserRepository::class)
-            ->disableOriginalConstructor()
-            ->setMethods(['findOneByUsername'])
-            ->getMock();
+        $this->userRepository = $this->getMock(UserRepository::class);
         $this->userProvider = new UserProvider($this->userRepository);
 
         $this->user = $this->getMock(User::class);
