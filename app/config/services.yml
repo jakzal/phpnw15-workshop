@@ -42,6 +42,11 @@ services:
         tags:
             - { name: 'kernel.event_listener', event: kernel.controller, method: registerCurrentController }
 
+    user_provider:
+        class: AppBundle\Security\User\UserProvider
+        arguments:
+            - @user_repository
+
     post_repository:
         class:     AppBundle\Repository\PostRepository
         factory:   ["@doctrine.orm.entity_manager", getRepository]
