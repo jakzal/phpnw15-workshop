@@ -18,7 +18,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
-use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\User;
 
 /**
@@ -39,11 +38,6 @@ use AppBundle\Entity\User;
 class AddUserCommand extends ContainerAwareCommand
 {
     const MAX_ATTEMPTS = 5;
-
-    /**
-     * @var ObjectManager
-     */
-    private $em;
 
     /**
      * @var UserRepository
@@ -76,7 +70,6 @@ class AddUserCommand extends ContainerAwareCommand
      */
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
-        $this->em = $this->getContainer()->get('doctrine')->getManager();
         $this->userRepository = $this->getContainer()->get('user_repository');
     }
 
@@ -198,8 +191,7 @@ class AddUserCommand extends ContainerAwareCommand
         $encodedPassword = $encoder->encodePassword($user, $plainPassword);
         $user->setPassword($encodedPassword);
 
-        $this->em->persist($user);
-        $this->em->flush($user);
+        $this->userRepository->register($user);
 
         $output->writeln('');
         $output->writeln(sprintf('[OK] %s was successfully created: %s (%s)', $isAdmin ? 'Administrator user' : 'User', $user->getUsername(), $user->getEmail()));

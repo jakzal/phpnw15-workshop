@@ -11,6 +11,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -24,4 +25,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    /**
+     * @param User $user
+     */
+    public function register(User $user)
+    {
+        $em = $this->getEntityManager();
+        $em->persist($user);
+        $em->flush($user);
+    }
 }
