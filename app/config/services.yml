@@ -86,6 +86,6 @@ services:
          arguments:
             - @pdo
 
-    post_repository: @post_repository.doctrine
-    comment_repository: @comment_repository.doctrine
-    user_repository: @user_repository.doctrine
+    post_repository: @post_repository.pdo
+    comment_repository: @comment_repository.pdo
+    user_repository: @user_repository.pdo
