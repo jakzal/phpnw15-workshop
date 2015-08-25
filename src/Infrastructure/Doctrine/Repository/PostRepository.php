@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AppBundle\Repository;
+namespace Infrastructure\Doctrine\Repository;
 
 use Blog\PostRepository as BlogPostRepository;
 use Doctrine\ORM\EntityRepository;
