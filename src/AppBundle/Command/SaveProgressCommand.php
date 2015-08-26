@@ -5,6 +5,7 @@ namespace AppBundle\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
 
 class SaveProgressCommand extends Command
 {
@@ -41,14 +42,20 @@ class SaveProgressCommand extends Command
         $workBranch = $this->getWorkBranch($currentBranch);
 
         $output->writeln(sprintf('You are currently on <info>%s</info>', $currentBranch));
+        $output->writeln(sprintf('I will first save results of your work to <info>%s</info>', $workBranch));
+        $output->writeln(sprintf('Next, I will switch to <info>%s</info>', $nextBranch));
 
-        $output->writeln(sprintf('Saving results of your work to <info>%s</info>', $workBranch));
+        if (!$this->getConfirmation($input, $output)) {
+            $output->writeln('<error>Aborted.</error>');
+
+            return;
+        }
+
         $this->saveWork($workBranch);
-
-        $output->writeln(sprintf('Switching to <info>%s</info>', $nextBranch));
         $this->switchBranch($nextBranch);
-
         $this->verifyOnBranch($nextBranch);
+
+        $output->writeln('<info>Done.</info>');
     }
 
     private function getCurrentBranch()
@@ -109,5 +116,13 @@ class SaveProgressCommand extends Command
         }
 
         return $output;
+    }
+
+    private function getConfirmation(InputInterface $input, OutputInterface $output)
+    {
+        $helper = $this->getHelper('question');
+        $question = new ConfirmationQuestion('Shall I go ahead and do it? ', false);
+
+        return $helper->ask($input, $output, $question);
     }
 }
