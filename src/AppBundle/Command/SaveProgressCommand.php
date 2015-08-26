@@ -75,7 +75,15 @@ class SaveProgressCommand extends Command
     private function saveWork($workBranch)
     {
         $this->exec(sprintf('git checkout -b %s', escapeshellarg($workBranch)));
-        $this->exec('git add -A; git commit -m "Save progress"');
+        $this->exec('git add -A');
+
+        try {
+            $this->exec('git commit -m "Save progress"');
+        } catch (\Exception $e) {
+            if (false === strpos($e->getMessage(), 'nothing to commit')) {
+                throw $e;
+            }
+        }
     }
 
     private function switchBranch($nextBranch)
