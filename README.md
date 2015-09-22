@@ -2,9 +2,9 @@
 
 ## Requirements
 
-The only environment requirement is PHP >= 5.5 with PDO sqlite support.
+The only environment requirement is **PHP >= 5.5** with **PDO sqlite** support.
 
-You'll also need git to clone the repository and save your progress
+You'll also need **git** to clone the repository and save your progress
 during the workshop.
 
 ## Setting up
@@ -14,7 +14,7 @@ Clone the repository:
     git clone git@github.com:jakzal/phpnw15-workshop.git
     cd phpnw15-workshop
 
-Run the following setup command and make sure it finishes with no errors:
+Run the following setup command and make sure it finishes with **no errors**:
 
     php setup.php
 
