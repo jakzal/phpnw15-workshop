@@ -1,0 +1,18 @@
+{
+    "name": "zalas/phpnw15-workshop",
+    "description": "Loose coupling in practice workshop for PHPNW 2015",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakub Zalas",
+            "email": "jakub@zalas.pl"
+        }
+    ],
+    "require": {
+        "php": "~5.5",
+        "ext-pdo_sqlite": "*"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
