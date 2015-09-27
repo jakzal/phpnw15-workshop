@@ -23,7 +23,7 @@ if (!file_exists('bin/composer')) {
 echo "[ok]\n";
 
 echo "Installing dependencies... \n";
-system('php bin/composer install', $status);
+system('php bin/composer install -n', $status);
 if ($status !== 0) {
     throw new \RuntimeException('Failed to install dependencies with composer. Try to do it yourself by running "php bin/composer install".');
 }
