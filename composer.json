@@ -31,7 +31,9 @@
         "symfony/swiftmailer-bundle"           : "~2.3",
         "symfony/symfony"                      : "~2.7",
         "twig/extensions"                      : "~1.2",
-        "zalas/param-converter-bundle"         : "~1.0"
+        "zalas/param-converter-bundle"         : "~1.0",
+        "kriswallsmith/buzz"                   : "^0.15.0",
+        "guzzlehttp/guzzle"                    : "^6.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
