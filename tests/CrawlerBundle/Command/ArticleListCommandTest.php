@@ -23,8 +23,6 @@ class ArticleListCommandTest extends \PHPUnit_Framework_TestCase
 
     public function testExecuteReturnsZeroStatusCodeIfSuccessful()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $commandTester = $this->executeCommand();
 
         $this->assertSame(0, $commandTester->getStatusCode());
