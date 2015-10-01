@@ -16,15 +16,20 @@ class ArticleExtractor
     public function extractArticles($content)
     {
         if (preg_match_all(self::ARTICLE_REGEXP, $content, $matches)) {
-            return array_map(
-                function ($title, $url) {
-                    return new Article($title, $url);
-                },
-                $matches['title'],
-                $matches['url']
-            );
+            return array_map([$this, 'createArticle'], $matches['title'], $matches['url']);
         }
 
         throw new \LogicException(sprintf('Could not find articles in the content: "%s"', $content));
+    }
+
+    /**
+     * @param string $title
+     * @param string $url
+     *
+     * @return Article
+     */
+    private function createArticle($title, $url)
+    {
+        return new Article(trim($title), $url);
     }
 }

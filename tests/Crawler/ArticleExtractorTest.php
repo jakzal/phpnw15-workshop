@@ -31,8 +31,6 @@ class ArticleExtractorTest extends \PHPUnit_Framework_TestCase
 
     public function testItTrimsTheTitles()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $content =
             '<article class="post"><h2><a href="/en/blog/posts/foo">
                 Foo
