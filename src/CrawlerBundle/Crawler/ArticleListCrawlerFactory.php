@@ -4,7 +4,8 @@ namespace CrawlerBundle\Crawler;
 
 use Crawler\ArticleExtractor;
 use Crawler\ArticleListCrawler;
-use Crawler\ContentProvider\FileGetContentsContentProvider;
+use Crawler\ContentProvider\GuzzleContentProvider;
+use GuzzleHttp\Client;
 
 class ArticleListCrawlerFactory
 {
@@ -14,7 +15,7 @@ class ArticleListCrawlerFactory
     public function create()
     {
         return new ArticleListCrawler(
-            new FileGetContentsContentProvider(),
+            new GuzzleContentProvider(new Client()),
             new ArticleExtractor()
         );
     }
