@@ -18,8 +18,6 @@ class ArticleExtractorTest extends \PHPUnit_Framework_TestCase
 
     public function testItReturnsListOfArticles()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $content =
             '<article class="post"><h2><a href="/en/blog/posts/foo">Foo</a></h2></article>
              <article class="post"><h2><a href="/en/blog/posts/bar">Bar</a></h2></article>';
