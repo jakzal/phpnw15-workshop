@@ -6,8 +6,6 @@ class ArticleListCrawlerTest extends \PHPUnit_Framework_TestCase
 {
     public function testItExtractsArticlesFromFetchedContent()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $articles = [new Article('Foo', 'foo.html')];
 
         $contentProvider = $this->prophesize(ContentProvider::class);
