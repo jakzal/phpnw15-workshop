@@ -25,8 +25,6 @@ class FileGetContentsContentProviderTest extends \PHPUnit_Framework_TestCase
 
     public function testItIsAContentProvider()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $this->assertInstanceOf(ContentProvider::class, new FileGetContentsContentProvider());
     }
 
