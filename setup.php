@@ -15,6 +15,7 @@ echo "[ok]\n";
 echo "Installing composer... ";
 if (!file_exists('bin/composer')) {
     echo "\n";
+    mkdir(__DIR__.'/bin');
     system('php -r "readfile(\'https://getcomposer.org/installer\');" | php -- --filename=composer --install-dir=bin', $status);
     if ($status !== 0) {
         throw new \RuntimeException('Failed to automatically intall composer. Try to install it yourself in the bin/ directory by following instructions on https://getcomposer.org/download/.');
