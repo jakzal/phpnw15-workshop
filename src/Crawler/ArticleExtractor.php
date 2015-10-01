@@ -4,6 +4,8 @@ namespace Crawler;
 
 interface ArticleExtractor
 {
+    const ARTICLE_REGEXP = '#<article class="post">.*?<h2>.*?<a.*?href="(?P<url>.*?)".*?>(?P<title>.*?)</a>#smi';
+
     /**
      * @param string $content
      *
