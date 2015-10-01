@@ -30,8 +30,6 @@ class ArticleListCommandTest extends \PHPUnit_Framework_TestCase
 
     public function testItListsFoundArticles()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $commandTester = $this->executeCommand();
 
         $this->assertRegExp('/Morbi tempus commodo mattis/smi', $commandTester->getDisplay());
