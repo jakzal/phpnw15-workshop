@@ -42,8 +42,6 @@ class ArticleListCrawlerTest extends \PHPUnit_Framework_TestCase
      */
     public function testItThrowsAnExceptionIfResourceCouldNotBeFetched()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $contentProvider = $this->prophesize(ContentProvider::class);
         $contentProvider->fetch('resource.html')->willThrow(new \Exception());
 

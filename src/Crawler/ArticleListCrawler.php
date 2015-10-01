@@ -36,7 +36,9 @@ class ArticleListCrawler
 
             return $this->articleExtractor->extractArticles($content);
         } catch (\LogicException $e) {
-            throw new \LogicException(sprintf('Could not find articles in the resource: "%s".', $resource, 0, $e));
+            throw new \LogicException(sprintf('Could not find articles in the resource: "%s".', $resource), 0, $e);
+        } catch (\Exception $e) {
+            throw new \LogicException(sprintf('Could not fetch the resource: "%s".', $resource), 0, $e);
         }
     }
 }
