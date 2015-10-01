@@ -23,6 +23,7 @@ use AppBundle\Entity\Post;
  *     $ cd your-symfony-project/
  *     $ phpunit -c app
  *
+ * @group integration
  */
 class BlogControllerTest extends WebTestCase
 {

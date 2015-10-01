@@ -23,6 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  *     $ cd your-symfony-project/
  *     $ phpunit -c app
  *
+ * @group integration
  */
 class DefaultControllerTest extends WebTestCase
 {
