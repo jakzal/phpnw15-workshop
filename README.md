@@ -43,5 +43,5 @@ To simplify the setup, we won't use a real web server during the workshop.
 The one built into PHP will work just fine.
 You can [start it with a Symfony command](http://symfony.com/doc/current/cookbook/web_server/built_in.html):
 
-    app/console server:run
+    php app/console server:run
 
