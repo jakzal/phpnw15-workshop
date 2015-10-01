@@ -2,7 +2,7 @@
 
 namespace Crawler;
 
-interface ArticleExtractor
+class ArticleExtractor
 {
     const ARTICLE_REGEXP = '#<article class="post">.*?<h2>.*?<a.*?href="(?P<url>.*?)".*?>(?P<title>.*?)</a>#smi';
 
@@ -13,5 +13,7 @@ interface ArticleExtractor
      *
      * @throws \LogicException if no article is found in content
      */
-    public function extractArticles($content);
+    public function extractArticles($content)
+    {
+    }
 }

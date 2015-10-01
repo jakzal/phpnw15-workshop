@@ -10,8 +10,6 @@ class ArticleExtractorTest extends \PHPUnit_Framework_TestCase
      */
     public function testItThrowsAnExceptionIfNoArticleWasFound()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $content = '<article><h2><a href="/en/blog/posts/foo">Foo</a></h2></article>';
 
         $articleExtractor = new ArticleExtractor();
