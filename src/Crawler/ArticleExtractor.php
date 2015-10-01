@@ -15,5 +15,6 @@ class ArticleExtractor
      */
     public function extractArticles($content)
     {
+        throw new \LogicException(sprintf('Could not find articles in the content: "%s"', $content));
     }
 }
