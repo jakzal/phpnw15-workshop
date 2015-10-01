@@ -15,5 +15,6 @@ class FileGetContentsContentProvider implements ContentProvider
      */
     public function fetch($resource)
     {
+        return file_get_contents($resource);
     }
 }

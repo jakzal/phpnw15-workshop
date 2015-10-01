@@ -30,8 +30,6 @@ class FileGetContentsContentProviderTest extends \PHPUnit_Framework_TestCase
 
     public function testItLoadsAResource()
     {
-        $this->markTestSkipped('This test is waiting to be implemented.');
-
         $contentProvider = new FileGetContentsContentProvider();
 
         $this->assertSame(self::CONTENT, $contentProvider->fetch($this->resource));
