@@ -31,8 +31,12 @@ class ArticleListCrawler
      */
     public function findArticles($resource)
     {
-        $content = $this->contentProvider->fetch($resource);
+        try {
+            $content = $this->contentProvider->fetch($resource);
 
-        return $this->articleExtractor->extractArticles($content);
+            return $this->articleExtractor->extractArticles($content);
+        } catch (\LogicException $e) {
+            throw new \LogicException(sprintf('Could not find articles in the resource: "%s".', $resource, 0, $e));
+        }
     }
 }
