@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Zalas\Bundle\ParamConverterBundle\ZalasParamConverterBundle(),
             new AppBundle\AppBundle(),
+            new CrawlerBundle\CrawlerBundle(),
         );
 
         // Some bundles are only used while developing the application or during
